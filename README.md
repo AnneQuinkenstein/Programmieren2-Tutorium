@@ -13,4 +13,4 @@ git pull
 
 ## Collections
 ![Collections](./folien/collections.png)
-![Collections](./folien/collections2.png)
+
