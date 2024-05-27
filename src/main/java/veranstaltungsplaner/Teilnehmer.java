@@ -1,7 +1,5 @@
 package veranstaltungsplaner;
 
-import java.util.Objects;
-
 public class Teilnehmer {
 
     // TODO Klassenvariablen (globale Variablen) für vorname, nachname & Geburtsjahr definieren
