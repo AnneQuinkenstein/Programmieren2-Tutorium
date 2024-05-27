@@ -43,7 +43,7 @@ for(Map.Entry<K, V> entry : map.entrySet())
 ```
 ###Exceptions
 ```java
-
+//welches Problem könnte auftrefen? -> IllegalSideLength 
 public class IllegalSideLengthException extends Exception
 {
 
@@ -56,12 +56,13 @@ public class IllegalSideLengthException extends Exception
     }
 }  
 
+//bei welcher Methode/Aktion tritt das Problem auf? 
 [modifizierer] [rueckgabetyp] methodenname throws ExceptionType
 {
     // Anweisungsblock
     // wirft (evtl.) Exception throw new IllegalSideLengthException();
 }   
-
+//wie behandle ich das Problem, wenn ich die Methode benutze?
 try {
     // Anweisungsblock
 } catch (ExceptionType e) {
@@ -92,13 +93,14 @@ public enum KartenWert {
 
 ```java
 class PowerTest {
-    static Power p1,p2,p3,p4;
-    static int testnr = 1;
+    static Power p1,p2;
+    int testnr = 1;
 
     @BeforeAll
     public static void setup()
     { //given
         p1 = new Power(2,3);
+        p2 = new Power(2,3);
     }
 
     @BeforeEach
@@ -117,23 +119,11 @@ class PowerTest {
     }
 
     @Test
-    void testPower() {
-        //then
-        assertNotNull(p1, "no Power object");
-    }
-
-    @Test
-    void testValue() {     
-        //when
-        double value = p1.value();
-        //then
-        assertEquals(8.0, value, "2^3 should be 8.0");
-    }
-
-    @Test
     public void testEqualsObject() {
+        //when
+        boolean result = p1.equals(p2); 
         //then
-        assertTrue(p1.equals(p2), " 2^3 should be equal to 2^3!");
+        assertTrue(result, " 2^3 should be equal to 2^3!");
     }
 }
 ```
