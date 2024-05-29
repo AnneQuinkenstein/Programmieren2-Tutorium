@@ -43,7 +43,7 @@ for(Map.Entry<K, V> entry : map.entrySet())
 ```
 ###Exceptions
 ```java
-
+//welches Problem könnte auftrefen? -> IllegalSideLength 
 public class IllegalSideLengthException extends Exception
 {
 
@@ -56,12 +56,13 @@ public class IllegalSideLengthException extends Exception
     }
 }  
 
+//bei welcher Methode/Aktion tritt das Problem auf? 
 [modifizierer] [rueckgabetyp] methodenname throws ExceptionType
 {
     // Anweisungsblock
     // wirft (evtl.) Exception throw new IllegalSideLengthException();
 }   
-
+//wie behandle ich das Problem, wenn ich die Methode benutze?
 try {
     // Anweisungsblock
 } catch (ExceptionType e) {
@@ -87,4 +88,58 @@ public enum KartenWert {
 
 }
 
+```
+###JUnit-Tests
+
+```java
+class PowerTest {
+    static Power p1,p2;
+    int testnr = 1;
+
+    @BeforeAll
+    public static void setup()
+    { //given
+        p1 = new Power(2,3);
+        p2 = new Power(2,3);
+    }
+
+    @BeforeEach
+    public void printBeforeTests()
+    {
+        System.out.printf("%n %n --------------- Test %d ------------ %n", testnr);
+    }
+
+
+    @Test
+    void testToString() {
+        //when
+        String s = p1.toString();
+        //then
+        assertEquals("(2^3)", s, "Strings are not equal!");
+    }
+
+    @Test
+    public void testEqualsObject() {
+        //when
+        boolean result = p1.equals(p2); 
+        //then
+        assertTrue(result, " 2^3 should be equal to 2^3!");
+    }
+}
+```
+https://freiheit.f4.htw-berlin.de/prog2/junit/#exceptions-testen
+```java
+@Test
+    void testFakultaetSmallerThan1() 
+    {
+        // given
+        Fakultaet f = new Fakultaet();
+
+        // when
+        Exception exception = assertThrows(IllegalArgumentException.class, () ->
+        f.fakultaet(0));
+
+        // then
+        assertEquals("Zahl muss groesser gleich 1 sein!", exception.getMessage());
+    }
 ```
