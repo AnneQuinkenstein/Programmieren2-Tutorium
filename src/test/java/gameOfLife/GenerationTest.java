@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 
 class GenerationTest {
 
+    //wir testen nur die public Methoden, da wir auf
+    //private Methoden keinen direkten, sondern einen indirekten
+    //Zugriff haben
+
     //initialisieren Test
     @Test
     public void initialisierenZeile3Spalte3Tot(){
@@ -31,7 +35,7 @@ class GenerationTest {
     //gibt nichts zurück, sondern verändert den inneren Zustand
     //der Generation
     @Test
-    public void naechsteGenerationZeile1Spalte1Stirbt1Nachbar(){
+    public void naechsteGenerationZeile1Spalte1Stirbt1LNachbar(){
         Generation zustand = new Generation(5);
         //Methode ist void
         zustand.simuliereNaechsteGeneration();
@@ -39,14 +43,14 @@ class GenerationTest {
     }
 
     @Test
-    public void naechsteGenerationZeile2Spalte1BleibtLebendig2Nachbarn(){
+    public void naechsteGenerationZeile2Spalte1BleibtLebendig2LNachbarn(){
         Generation zustand = new Generation(5);
         zustand.simuliereNaechsteGeneration();
         assertEquals(Zelle.LEBENDIG, zustand.generation[2][1]);
     }
 
     @Test
-    public void naechsteGenerationZeile2Spalte4BleibtLebendig3Nachbarn(){
+    public void naechsteGenerationZeile2Spalte4BleibtLebendig3LNachbarn(){
         Generation zustand = new Generation(6);
         //Erstellen uns ein dummy lebenden Nachbarn
         zustand.generation[2][5] = Zelle.LEBENDIG;
@@ -55,7 +59,7 @@ class GenerationTest {
     }
 
     @Test
-    public void naechsteGenerationZeile2Spalte4Stirbt4Nachbarn(){
+    public void naechsteGenerationZeile2Spalte4Stirbt4LNachbarn(){
         Generation zustand = new Generation(6);
         zustand.generation[2][5] = Zelle.LEBENDIG;
         zustand.generation[3][5] = Zelle.LEBENDIG;
@@ -64,10 +68,25 @@ class GenerationTest {
     }
 
     @Test
-    public void naechsteGenerationZeile2Spalte3WirdLebendig3Nachbarn(){
+    public void naechsteGenerationZeile2Spalte3WirdLebendig3LNachbarn(){
         Generation zustand = new Generation(6);
         zustand.simuliereNaechsteGeneration();
         assertEquals(Zelle.LEBENDIG, zustand.generation[2][3]);
+    }
+
+    @Test
+    public void naechsteGenerationZeile1Spalte0BleibtTot2LNachbarn(){
+        Generation zustand = new Generation(6);
+        zustand.simuliereNaechsteGeneration();
+        assertEquals(Zelle.TOT, zustand.generation[1][0]);
+    }
+
+    @Test
+    public void naechsteGenerationZeile2Spalte3BleibtTot4LNachbarn(){
+        Generation zustand = new Generation(6);
+        zustand.generation[3][3] = Zelle.LEBENDIG;
+        zustand.simuliereNaechsteGeneration();
+        assertEquals(Zelle.TOT, zustand.generation[2][3]);
     }
 
 
