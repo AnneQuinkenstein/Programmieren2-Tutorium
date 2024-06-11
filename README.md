@@ -1,3 +1,4 @@
+<div style="font-family:Papyrus; font-size:2em;">
 # Tips & Tricks
 
 ## Git Befehle
@@ -14,7 +15,7 @@ git pull
 ## Collections
 ![Collections](./folien/collections.png)
 
-###Lists, Sets
+### Lists, Sets
 ```java
 Iterator<String> iterator = list.iterator();
 while(iterator.hasNext()) {
@@ -26,7 +27,7 @@ for (String s : list) {
     }
 ```
 
-###Maps
+### Maps
 ```java
 Map<K, V> map = new HashMap<>();
 map.put(K key, V value);
@@ -41,7 +42,7 @@ for(Map.Entry<K, V> entry : map.entrySet())
     }
 
 ```
-###Exceptions
+### Exceptions
 ```java
 //welches Problem könnte auftrefen? -> IllegalSideLength 
 public class IllegalSideLengthException extends Exception
@@ -71,7 +72,7 @@ try {
 
 ```
 
-###ENUM
+### ENUM
 ```java
 public enum KartenWert {
     SIEBEN(0), ACHT(0), NEUN(0), BUBE(2), DAME(3), KOENIG(4), ZEHN(10), ASS(11);
@@ -89,7 +90,7 @@ public enum KartenWert {
 }
 
 ```
-###JUnit-Tests
+### JUnit-Tests
 
 ```java
 class PowerTest {
@@ -143,3 +144,28 @@ https://freiheit.f4.htw-berlin.de/prog2/junit/#exceptions-testen
         assertEquals("Zahl muss groesser gleich 1 sein!", exception.getMessage());
     }
 ```
+##### Testideen
+* Grenzwerte
+* Zahlen: 0, Null (wenn kein Primitiver Datentyp), negative Zahlen, positive Zahlen
+* Strings: null, “”, normaler String, String mit Umlauten
+* Collections: null, leere Liste/ Map/ Set, Liste mit mehreren Elemeneten (3) anstatt nur einem
+
+### Mockito
+```java
+Mockito.verify(r, Mockito.times(1)).nextInt(Mockito.anyInt());
+Mockito.times(x) //wurde die Methode x mal aufgerufen?
+Mockito.atLeast(x)  //wurde die Methode mindestens x mal aufgerufen?
+Mockito.atMost(x) //wurde die Methode höchstens x mal aufgerufen?
+Mockito.only() // wurde nur diese eine Methode für das Objekt aufgerufen und keine andere?
+```
+
+##### Argument Matchers -> Mockito.verify(r, Mockito.times(1)).nextInt(Mockito.anyInt());
+* Primitive Typen: anyBoolean(), anyByte(), anyChar() usw.
+* Collections: anyCollection(), anyList(), anyMap() usw.
+* Strings: anyString(), contains("teilstring"),endsWith("ende"), startsWith("anfang"), matches("Reg. Ausdruck")
+* Objekte: any(), isNotNull(), isNull(),isA(EineKlasse.class)
+
+
+
+
+</div>
