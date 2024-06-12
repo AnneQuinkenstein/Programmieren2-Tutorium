@@ -2,8 +2,8 @@
 
 ### 1.Das Observer -Entwurfsmuster(siehe
 https://de.wikipedia.org/wiki/Beobachter_(Entwurfsmuster))gehört zu den am meisten verwendeten Designmustern/Designpattern/Pattern in der Programmierung. Es wird auch Beobachter-Muster oder Publisher-Pattern genannt. Man kann sich dieses Pattern so vorstellen, dass der Publisher eine Zeitung oder auch Slack ist und dass Listener diese Zeitung (oder Slack) "abonnieren". Immer, wenn eine Nachricht veröffentlicht wird, dann erfahren alle Abonnenten davon. Wir werden eine (einfache) Implementierung dieses Entwurfsmusters durchführen
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
+![img_1.png](../../ressources/img_1.png)
+![img_2.png](../../ressources/img_2.png)
 
 (Subject = Publisher = Slack, Observer = Listener = Student)
 ### 2. Erstellen Sie ein Interface Publisher mit folgenden (abstrakten) Methoden:
