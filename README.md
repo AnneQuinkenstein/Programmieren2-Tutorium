@@ -13,7 +13,7 @@ git push
 git pull
 ```
 ## switch
-```
+```java
 switch(expression) {
   case x:
     // code block
