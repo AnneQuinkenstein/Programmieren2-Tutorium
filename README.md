@@ -1,4 +1,5 @@
 <div style="font-family:Papyrus; font-size:2em;">
+    
 # Tips & Tricks
 
 ## Git Befehle
@@ -11,6 +12,17 @@ git push
 
 git pull
 ```
+## switch
+switch(expression) {
+  case x:
+    // code block
+    break;
+  case y:
+    // code block
+    break;
+  default:
+    // code block
+}
 
 ## Collections
 ![Collections](./folien/collections.png)
