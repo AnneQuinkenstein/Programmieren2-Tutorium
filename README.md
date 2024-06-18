@@ -13,6 +13,7 @@ git push
 git pull
 ```
 ## switch
+```
 switch(expression) {
   case x:
     // code block
@@ -23,6 +24,7 @@ switch(expression) {
   default:
     // code block
 }
+```
 
 ## Collections
 ![Collections](./folien/collections.png)
