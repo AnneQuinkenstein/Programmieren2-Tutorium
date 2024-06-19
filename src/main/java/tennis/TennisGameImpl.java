@@ -30,15 +30,15 @@ public class TennisGameImpl implements TennisGame {
         if (pointsPlayer1 == pointsPlayer2) {
             if (pointsPlayer1 == 0){
                 return "Love-All";
+            }
+            if (pointsPlayer1 == 1) {
+                return "Fifteen-All";
+            }
+            if (pointsPlayer1 == 2) {
+                return "Thirty-All";
+            }
+            return "Deuce";
         }
-        if (pointsPlayer1 == 1) {
-            return "Fifteen-All";
-        }
-        if (pointsPlayer1 == 2) {
-            return "Thirty-All";
-        }
-        return "Deuce";
-    }
 
         if(pointsPlayer1 >= 4 || pointsPlayer2 >= 4){
             if(pointsDistance >= 2){
@@ -52,13 +52,13 @@ public class TennisGameImpl implements TennisGame {
 
         }
         String expressionPlayer1 = "";
-       switch (pointsPlayer1) {
+        switch (pointsPlayer1) {
             case 0 -> expressionPlayer1 = "Love";
             case 1 -> expressionPlayer1 = "Fifteen";
             case 2 -> expressionPlayer1 = "Thirty";
             case 3 -> expressionPlayer1 = "Forty";
 
-       }
+        }
         String expressionPlayer2 = "";
         switch (pointsPlayer2) {
             case 0 -> expressionPlayer2 = "Love";
@@ -75,6 +75,6 @@ public class TennisGameImpl implements TennisGame {
 
         //Wenn die Punkte
         //Wenn die Punkte = 0 sind
-}
+    }
 }
 
