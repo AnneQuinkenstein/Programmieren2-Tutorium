@@ -16,38 +16,38 @@ public class StreamsMain {
 
         // Die Methode gibt eine neue Liste zurück in der die Werte jeweils mit 2 multipliziert wurden.
       /*  List<Integer> resultNum = multiplyByTwo(numbers);
-        System.out.println(resultNum);*/
+        System.out.println("Multiply by Two: " + resultNum);*/
 
         // Nutzen Sie die Stream API um eine Liste zu erzeugen in der jeweils ein Sternchen * an die Strings angehängt wurde.
         /*List<String> resultString = appendStar(strings);
-        System.out.println(resultString);
+        System.out.println("Sternchen an String: " + resultString);
 */
         //  Nutzen Sie die Stream API um eine Liste zu erzeugen in der nur Strings mit mindestens 6 Zeichen enthalten sind.
        /* List<String> longStrings = filterLongStrings(strings);
-        System.out.println(longStrings);
+        System.out.println("Strings mit mind. 6 Zeichen: " + longStrings);
 */
         // Nutzen Sie die Stream API um eine Liste nur mit den geraden Integers zurückzugeben..
        /* List<Integer> evenNumbers = filterEvenNumbers(numbers);
-        System.out.println(evenNumbers);*/
+        System.out.println("Liste mit geraden Integers: " + evenNumbers);*/
 
         // Nutzen Sie die Stream API um eine Liste nur mit den negativen Integers zurückzugeben.
       /*  List<Integer> negativeNumbers = filterNegativeNumbers(mixedNumbers);
-        System.out.println(negativeNumbers);*/
+        System.out.println("Liste nur mit den negativen Integers: " + negativeNumbers);*/
 
         //Nutzen Sie die Stream API um die Summe aller geraden Zahlen aus der Liste zurückzugeben. (schauen Sie sich reduce() an)
    /*     int sumOfEvenNumbers = sumOfEven(numbers);
-        System.out.println(sumOfEvenNumbers);*/
+        System.out.println("Summe aller geraden Zahlen: " + sumOfEvenNumbers);*/
 
         //Erstelle eine neue Liste, die die Quadrate aller ungeraden Zahlen einer gegebenen Liste enthält.
      /*   List<Integer> squaresOfOddNumbers = squaresOfOdd(numbers);
-        System.out.println(squaresOfOddNumbers);*/
+        System.out.println("Quadrate aller ungeraden Zahlen: " + squaresOfOddNumbers);*/
 
         //Erstellen Sie eine Innereklasse Person mit Namen und Alter.
         // Schreiben Sie eine Methode in der Sie per Stream API diese Liste Filtern.
         // Geben Sie die Namen aller Personen über 18 zurück
         // die mit einem der Methode als Parameter übergebenen Buchstaben anfangen
       /*  List<String> filteredPeople = filterPeople(people, 'A');
-        System.out.println(filteredPeople);*/
+        System.out.println("Namen aller Personen über 18 zurück, die mit A anfangen: " + filteredPeople);*/
 
         //Nutzen Sie die Klasse Person aus Aufgabe 8.
         // Nutzen Sie die Stream API um die Personen nach Alter zu gruppieren
@@ -55,7 +55,7 @@ public class StreamsMain {
         // (Schauen Sie sich dafür collect() an und nutzen Sie in collect() Collectors.
 
       /*  Map<Integer, Long> peopleByAge = groupPeopleByAge(people);
-        System.out.println(peopleByAge);*/
+        System.out.println("wie viele Personen es in jeder Altersgruppe: " + peopleByAge);*/
 
     }
 
