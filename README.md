@@ -84,6 +84,18 @@ try {
     // Behandlung der Exception
 }
 
+//ACHTUNG! NICHT zusammen - entweder wirft Methode Exeption (weiter) oder sie fängt Exeption!
+FALSCH: 
+public void methode() throws Exception {
+    try {
+        // ...
+        fehleranfaelligeAnweisung();
+        // ...
+    } catch (Exception e) {
+        // ...
+    }
+}
+
 ```
 
 ### ENUM
@@ -184,24 +196,31 @@ Streams bieten die Möglichkeit,Sammeloperationen auf Collections auszuführen, 
 Zwischenoperationen haben als Rückgabewert wieder einen Stream, abschließende Operationen einen anderen Datentyp
 #### Beispiele für Zwischenoperationen
 
-| Method | Description |
-| --- | --- |
-| `Stream<T> filter(Predicate<? super T> predicate)` | Gibt einen Stream der Elemente zurück, auf die ein bestimmtes Prädikat (predicate, Kriterium) zutrifft. |
-| `<R> Stream<R> map(Function<? super T,? extends R> mapper)` | Gibt einen Stream der bearbeiteten Elemente zurück, nachdem die angegebene Funktion auf sie angewandt wurde. |
-| `Stream<T> sorted()` | Gibt einen Stream der Elemente dieses Streams in natürlicher Reihenfolge sortiert zurück. |
-| `Stream<T> limit(long maxSize)` | Gibt einen Stream mit Elementen zurück, deren Anzahl die in maxSize angegebene nicht überschreitet. |
-| `Stream<T> skip(long n)` | Gibt einen Stream der verbleibenden Elemente zurück, nachdem die ersten n Elemente dieses Streams entfernt wurden. |
-
+| Method                                                                                                       | Description                                                                                                        |
+|--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
+| `Stream<T> filter(Predicate<? super T> predicate)`                                                           |Gibt einen Stream der Elemente zurück, auf die ein bestimmtes Prädikat (predicate, Kriterium) zutrifft.           |
+ | Beispiel:  `Stream <String> elementswithA = irgendwas.stream().filter(element -> element.startsWith("A")); ` |
+| `<R> Stream<R> map(Function<? super T,? extends R> mapper)`                                                  | Gibt einen Stream der bearbeiteten Elemente zurück, nachdem die angegebene Funktion auf sie angewandt wurde.       |
+| Beispiel: `Stream<String> upperCaseStream = irgendwas.stream().map(s -> s.toUpperCase()); `                  |
+| `Stream<T> sorted()`                                                                                         | Gibt einen Stream der Elemente dieses Streams in natürlicher Reihenfolge sortiert zurück.                          |
+| `Stream<T> distinct()`                                                                                       | Gibt einen Stream der eindeutigen Elemente dieses Streams zurück.                                                  |
+| `Stream<T> limit(long maxSize)`                                                                              | Gibt einen Stream mit Elementen zurück, deren Anzahl die in maxSize angegebene nicht überschreitet.                |
+| `Stream<T> skip(long n)`                                                                                     | Gibt einen Stream der verbleibenden Elemente zurück, nachdem die ersten n Elemente dieses Streams entfernt wurden. |
+| 
 
 #### Beispiele für abschließende Operationen
 
-| Method                                                |Description|
-|-------------------------------------------------------| --- |
-| `<R,A> R collect(Collector<? super T,A,R> collector)` | Führt mithilfe von Collector eine mutable Reduktionsoperation auf den Elementen dieses Streams durch. |
-| `boolean anyMatch(Predicate<? super T> predicate)`    | Gibt true zurück, wenn ein Element das angegebene Prädikat (predicate, Kriterium) erfüllt. |
-| `Optional<T> findFirst()`                             | Gibt ein Optional zurück, das das erste Element dieses Streams beschreibt, oder ein leeres Optional, wenn der Stream leer ist. |
-| `long count`                                          | Gibt die Zahl der Elemente in diesem Stream zurück. |
-| `T reduce(T beginn, BinaryOperator<T> b)`             | Führt eine Reduktionsoperation auf den Elementen dieses Streams durch, wobei der angegebene Assoziativoperator verwendet wird. |
+| Method                                                         |Description|
+|----------------------------------------------------------------| --- |
+| `void forEach(Consumer<? super T> action)`                     | Führt eine Operation auf jedem Element dieses Streams aus. |
+| Beispiel: `list.stream().forEach(s -> System.out.println(s));` |
+| `<R,A> R collect(Collector<? super T,A,R> collector)`          | Führt mithilfe von Collector eine mutable Reduktionsoperation auf den Elementen dieses Streams durch. |
+| Beispiel: `list.stream().collect(Collectors.toList());`         |
+| `boolean anyMatch(Predicate<? super T> predicate)`             | Gibt true zurück, wenn ein Element das angegebene Prädikat (predicate, Kriterium) erfüllt. |
+| Beispiel: `boolean anyMatch = list.stream().anyMatch(s -> s.startsWith("A"));` |
+| `Optional<T> findFirst()`                                      | Gibt ein Optional zurück, das das erste Element dieses Streams beschreibt, oder ein leeres Optional, wenn der Stream leer ist. |
+| `long count`                                                   | Gibt die Zahl der Elemente in diesem Stream zurück. |
+| `T reduce(T beginn, BinaryOperator<T> b)`                      | Führt eine Reduktionsoperation auf den Elementen dieses Streams durch, wobei der angegebene Assoziativoperator verwendet wird. |
 
 Klasse Collectors hilft oft weiter. Sie enthält viele Methoden, die Collector-Objekte erzeugen, die in der collect-Methode verwendet werden können. 
 zB `Collectors.toList()`,  `Collectors.groupingBy(Function.identity(), Collectors.counting())`
