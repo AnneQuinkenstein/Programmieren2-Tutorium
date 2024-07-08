@@ -22,7 +22,8 @@ public class ObjekteAussortieren {
             new Produkt("Maus", 50),
             new Produkt("Tastatur", 70)
         );
-       // List<Person> gefilterteProdukte = Implementierung hier
+       // List<Produkt> gefilterteProdukte = Implementierung hier
           //  System.out.println(gefilterteProdukte);
+
     }
 }

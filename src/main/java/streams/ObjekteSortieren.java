@@ -20,7 +20,7 @@ public class ObjekteSortieren {
             new Person("Tom", 16),
             new Person("Anna", 22)
         );
-      /*  int sortierteVornamen = // Implementierung hier
-            System.out.println(sortierteVornamen);*/
+        /*  List<Person> sortiertePersonen = // Implementierung hier
+                System.out.println(sortiertePersonen);*/
     }
 }

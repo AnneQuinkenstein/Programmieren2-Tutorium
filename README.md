@@ -196,16 +196,18 @@ Streams bieten die Möglichkeit,Sammeloperationen auf Collections auszuführen, 
 Zwischenoperationen haben als Rückgabewert wieder einen Stream, abschließende Operationen einen anderen Datentyp
 #### Beispiele für Zwischenoperationen
 
-| Method                                                                                                       | Description                                                                                                        |
-|--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|
-| `Stream<T> filter(Predicate<? super T> predicate)`                                                           |Gibt einen Stream der Elemente zurück, auf die ein bestimmtes Prädikat (predicate, Kriterium) zutrifft.           |
+| Method                                                                                                       | Description                                                                                                                          |
+|--------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| `Stream<T> filter(Predicate<? super T> predicate)`                                                           | Gibt einen Stream der Elemente zurück, auf die ein bestimmtes Prädikat (predicate, Kriterium) zutrifft.                              |
  | Beispiel:  `Stream <String> elementswithA = irgendwas.stream().filter(element -> element.startsWith("A")); ` |
-| `<R> Stream<R> map(Function<? super T,? extends R> mapper)`                                                  | Gibt einen Stream der bearbeiteten Elemente zurück, nachdem die angegebene Funktion auf sie angewandt wurde.       |
+| `<R> Stream<R> map(Function<? super T,? extends R> mapper)`                                                  | Gibt einen Stream der bearbeiteten Elemente zurück, nachdem die angegebene Funktion auf sie angewandt wurde.                         |
 | Beispiel: `Stream<String> upperCaseStream = irgendwas.stream().map(s -> s.toUpperCase()); `                  |
-| `Stream<T> sorted()`                                                                                         | Gibt einen Stream der Elemente dieses Streams in natürlicher Reihenfolge sortiert zurück.                          |
-| `Stream<T> distinct()`                                                                                       | Gibt einen Stream der eindeutigen Elemente dieses Streams zurück.                                                  |
-| `Stream<T> limit(long maxSize)`                                                                              | Gibt einen Stream mit Elementen zurück, deren Anzahl die in maxSize angegebene nicht überschreitet.                |
-| `Stream<T> skip(long n)`                                                                                     | Gibt einen Stream der verbleibenden Elemente zurück, nachdem die ersten n Elemente dieses Streams entfernt wurden. |
+| `Stream<T> sorted()`                                                                                         | Gibt einen Stream der Elemente dieses Streams in natürlicher Reihenfolge sortiert zurück. (oder über Interface Comparable definiert) |
+| `Stream<T> sorted(Comparator<? super T> comparator)`                                                         | Gibt einen Stream der Elemente dieses Streams in der Reihenfolge zurück, die durch den angegebenen Comparator definiert ist.         |
+| Beispiel: `personen.stream().sorted((p1, p2) -> p1.getName().compareTo(p2.getName()))`
+| `Stream<T> distinct()`                                                                                       | Gibt einen Stream der eindeutigen Elemente dieses Streams zurück.                                                                    |
+| `Stream<T> limit(long maxSize)`                                                                              | Gibt einen Stream mit Elementen zurück, deren Anzahl die in maxSize angegebene nicht überschreitet.                                  |
+| `Stream<T> skip(long n)`                                                                                     | Gibt einen Stream der verbleibenden Elemente zurück, nachdem die ersten n Elemente dieses Streams entfernt wurden.                   |
 | 
 
 #### Beispiele für abschließende Operationen
@@ -221,6 +223,7 @@ Zwischenoperationen haben als Rückgabewert wieder einen Stream, abschließende 
 | `Optional<T> findFirst()`                                      | Gibt ein Optional zurück, das das erste Element dieses Streams beschreibt, oder ein leeres Optional, wenn der Stream leer ist. |
 | `long count`                                                   | Gibt die Zahl der Elemente in diesem Stream zurück. |
 | `T reduce(T beginn, BinaryOperator<T> b)`                      | Führt eine Reduktionsoperation auf den Elementen dieses Streams durch, wobei der angegebene Assoziativoperator verwendet wird. |
+| Beispiel: `int sum = list.stream().reduce(0, (a, b) -> a + b);` |
 
 Klasse Collectors hilft oft weiter. Sie enthält viele Methoden, die Collector-Objekte erzeugen, die in der collect-Methode verwendet werden können. 
 zB `Collectors.toList()`,  `Collectors.groupingBy(Function.identity(), Collectors.counting())`
