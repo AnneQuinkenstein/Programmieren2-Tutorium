@@ -85,7 +85,7 @@ try {
 }
 
 //ACHTUNG! NICHT zusammen - entweder wirft Methode Exeption (weiter) oder sie fängt Exeption!
-FALSCH: 
+FALSCH (2 in 1, definistion der fehleranfälligen Anweisung + throws Exception + Aufruf ist im try-catch Block)  
 public void methode() throws Exception {
     try {
         // ...

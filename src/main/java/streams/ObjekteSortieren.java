@@ -10,9 +10,15 @@ public class ObjekteSortieren {
       /*  List<Integer> sortierteZahlen = // Implementierung hier
             System.out.println(sortierteZahlen);*/
 
+        List<Integer> sortierteZahlen = zahlen.stream().sorted().toList();
+        System.out.println(sortierteZahlen);
+
         List<String> woerter = Arrays.asList("Banane", "Apfel", "Ananas", "Birne");
       /*  List<String> sortierteWoerter = // Implementierung hier
             System.out.println(sortierteWoerter);*/
+
+        List<String> sortierteWoerter = woerter.stream().sorted().toList();
+        System.out.println(sortierteWoerter);
 
         List<Person> personen = Arrays.asList(
             new Person("Max", 17),
@@ -20,7 +26,12 @@ public class ObjekteSortieren {
             new Person("Tom", 16),
             new Person("Anna", 22)
         );
+
         /*  List<Person> sortiertePersonen = // Implementierung hier
                 System.out.println(sortiertePersonen);*/
+
+        //List<Person> sortiertePersonen = personen.stream().sorted((person1, person2) -> person1.compareTo(person2)).toList();
+        List<Person> sortiertePersonen = personen.stream().sorted().toList();
+        System.out.println(sortiertePersonen);
     }
 }

@@ -9,8 +9,9 @@ public class Produkt {
         this.preis = preis;
     }
 
-    void erhoehePreis(double prozentsatz) {
+    Produkt erhoehePreis(double prozentsatz) {
         this.preis += this.preis * prozentsatz / 100;
+        return this;
     }
 
     @Override
