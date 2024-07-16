@@ -12,7 +12,7 @@ public class StreamsMain {
         List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         List<String> strings = List.of("Hallo", "Welt", "Streams", "sind", "toll", "Java");
         List<Integer> mixedNumbers = List.of(-1, 2, -3, 4, -5, 6, -7, 8, -9, 10);
-      List<Person> people = Arrays.asList(new Person("Anna", 26), new Person("Alice", 45), new Person("Bahar", 17), new Person("Charlie", 26));
+       List<Person> people = Arrays.asList(new Person("Anna", 26), new Person("Alice", 45), new Person("Bahar", 17), new Person("Charlie", 26));
 
         // Die Methode gibt eine neue Liste zurück in der die Werte jeweils mit 2 multipliziert wurden.
        List<Integer> resultNum = multiplyByTwo(numbers);

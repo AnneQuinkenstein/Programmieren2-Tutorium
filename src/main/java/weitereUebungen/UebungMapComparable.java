@@ -1,7 +1,9 @@
+package weitereUebungen;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class UebungWrapperMapComparable {
+public class UebungMapComparable {
     public static void main(String[] args) {
       Map<String, Integer> population = new HashMap<>();
         population.put("USA", 328_000_000);
@@ -16,9 +18,9 @@ public class UebungWrapperMapComparable {
 
         //Erstelle eine Klasse Country mit den Attributen name und population und erzeuge eine Liste von Country-Objekten aus der Map.
 
-        //Implementiere Comparable in Countrys
+        //Implementiere Comparable in Countrys und vergleiche nach Bevölkerungszahl (Zusatz: wenn Bevölerung gleich ist, nach Name)
 
-        //Sortiere die Liste mit Country Objekten nach Bevölkerungszahl.
+        //Sortiere die Liste mit Country Objekten
 
         //Geht das auch mit Stream?
     }
