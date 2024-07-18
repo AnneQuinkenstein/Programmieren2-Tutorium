@@ -37,14 +37,21 @@ public class UebungMapComparable {
         System.out.println(population.keySet()+" "+ population.values());
 
          Set<String> countries = population.keySet();
-//
-//        Iterator<String> iterator = countries.iterator();
-//        while(iterator.hasNext())
-//        {
-//           iterator.next().toUpperCase();
-//
-//        }
-//        System.out.println(countries);
+
+         //für den Iterator gibt es spezielle Methoden um die Elemente der Collection zu bearbeiten
+      //die, die wir kennengelernt haben, ist entfernen/ remove (deswegen habe ich die Aufgabe umformuliert)
+
+      //Entferne alle Länder, die mit "G" beginnen.
+      Iterator<String> iterator = countries.iterator();
+      while(iterator.hasNext())
+      {
+        if (iterator.next().startsWith("G"))
+        {
+          iterator.remove();
+        }
+      }
+      System.out.println(countries);
+
 
         Set<String> country =countries.stream().map(a-> a.toUpperCase()).collect(Collectors.toSet());
         System.out.println(country);
